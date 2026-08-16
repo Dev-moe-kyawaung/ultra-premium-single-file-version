@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Moe Kyaw Aung — Senior Android Developer crafting premium mobile experiences with Kotlin, Jetpack Compose, Firebase, and clean architecture." />
+  <meta name="keywords" content="Moe Kyaw Aung, Android Developer, Kotlin, Jetpack Compose, Firebase, Clean Architecture, Myanmar" />
+  <meta name="author" content="Moe Kyaw Aung" />
+  <meta name="theme-color" content="#07080b" />
+  <meta property="og:title" content="Moe Kyaw Aung | Senior Android Developer" />
+  <meta property="og:description" content="Ultra-premium cyberpunk portfolio for Android engineering, product delivery, and modern mobile systems." />
+  <meta property="og:image" content="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_1200/v1778527878/IMG_20260430_053105_uef0yr.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://YOUR_DOMAIN_OR_GITHUB_PAGES_URL/" />
+  <title>Moe Kyaw Aung | Android Senior Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#07080b;
+      --bg2:#0b0d12;
+      --surface:rgba(17,19,27,.82);
+      --surface2:#11151d;
+      --surface3:#1a2030;
+      --border:rgba(255,255,255,.09);
+      --text:#f2f4f8;
+      --muted:#a1a8b8;
+      --cyan:#00e5ff;
+      --blue:#4f8cff;
+      --purple:#b86cff;
+      --pink:#ff4db8;
+      --green:#3df28a;
+      --gold:#f5c56b;
+      --shadow:0 28px 100px rgba(0,0,0,.48);
+      --shadow2:0 12px 40px rgba(0,229,255,.10);
+      --radius:24px;
+      --radius2:16px;
+      --container:min(1260px, calc(100% - 2rem));
+      --mono:"JetBrains Mono","Noto Sans Myanmar",monospace;
+      --display:"Space Grotesk","Noto Sans Myanmar",sans-serif;
+    }
+    [data-theme="light"]{
+      --bg:#f4f6fb;
+      --bg2:#eef1f7;
+      --surface:rgba(255,255,255,.84);
+      --surface2:#ffffff;
+      --surface3:#e8ecf5;
+      --border:rgba(16,24,40,.10);
+      --text:#0f1420;
+      --muted:#5e6678;
+      --shadow:0 18px 60px rgba(20,24,34,.12);
+      --shadow2:0 12px 40px rgba(0,229,255,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 8%, rgba(0,229,255,.11), transparent 22rem),
+        radial-gradient(circle at 88% 20%, rgba(184,108,255,.12), transparent 20rem),
+        radial-gradient(circle at 50% 100%, rgba(61,242,138,.08), transparent 22rem),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      font-family:var(--mono);
+      overflow-x:hidden;
+      transition:background .25s ease,color .25s ease;
+    }
+    body.modal-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+    ::selection{background:var(--cyan);color:#021014}
+
+    .skip{
+      position:fixed;left:1rem;top:-100px;z-index:9999;padding:.75rem 1rem;border-radius:12px;
+      background:var(--cyan);color:#021014;font-weight:900
+    }
+    .skip:focus{top:1rem}
+    .noise{
+      position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")
+    }
+    .grid{
+      position:fixed;inset:0;z-index:-2;opacity:.12;pointer-events:none;
+      background-image:linear-gradient(rgba(0,229,255,.09) 1px, transparent 1px),linear-gradient(90deg, rgba(0,229,255,.09) 1px, transparent 1px);
+      background-size:44px 44px;mask-image:linear-gradient(to bottom, black, transparent 92%)
+    }
+    #particles{position:fixed;inset:0;z-index:-3;width:100%;height:100%}
+    .container{width:var(--container);margin:0 auto;position:relative;z-index:1}
+    .section{padding:5.8rem 0}
+    .label{
+      display:inline-flex;align-items:center;gap:.65rem;margin-bottom:.85rem;color:var(--cyan);
+      font-size:.74rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase
+    }
+    .label::before{content:"";width:34px;height:1px;background:currentColor}
+    .title{
+      margin:0;font-family:var(--display);font-size:clamp(2.2rem,5.8vw,4.8rem);
+      line-height:.96;letter-spacing:-.075em
+    }
+    .copy{max-width:780px;margin:1rem 0 0;color:var(--muted);font-size:1.02rem}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:.65rem;padding:.45rem .82rem;border:1px solid rgba(61,242,138,.25);
+      border-radius:999px;background:rgba(61,242,138,.05);color:var(--green);font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase
+    }
+    .dot{
+      width:.56rem;height:.56rem;border-radius:50%;background:var(--green);
+      box-shadow:0 0 0 0 rgba(61,242,138,.7);animation:pulse 1.8s infinite
+    }
+    @keyframes pulse{70%{box-shadow:0 0 0 12px rgba(61,242,138,0)}100%{box-shadow:0 0 0 0 rgba(61,242,138,0)}}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.82rem 1.15rem;
+      border-radius:14px;border:1px solid transparent;font-weight:900;transition:.2s ease
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 18px 30px rgba(0,229,255,.12)}
+    .btn-primary{background:var(--cyan);color:#021014}
+    .btn-secondary{background:rgba(255,255,255,.03);border-color:var(--border);color:var(--text)}
+    .btn-secondary:hover{border-color:var(--purple);background:rgba(184,108,255,.12)}
+    .chip{
+      display:inline-flex;align-items:center;gap:.5rem;padding:.52rem .76rem;border:1px solid var(--border);
+      border-radius:10px;background:var(--surface2);color:var(--muted);font-size:.73rem;font-weight:800;transition:.2s ease
+    }
+    .chip:hover{transform:translateY(-2px);border-color:var(--cyan);color:var(--cyan)}
+    .card{
+      border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);
+      box-shadow:var(--shadow);backdrop-filter:blur(18px)
+    }
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease, transform .75s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .navbar{
+      position:fixed;inset:0 0 auto 0;z-index:100;
+      transition:.25s ease;border-bottom:1px solid transparent
+    }
+    .navbar.scrolled{
+      background:color-mix(in srgb, var(--bg) 86%, transparent);
+      border-color:var(--border);
+      backdrop-filter:blur(20px)
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:78px}
+    .brand{display:flex;align-items:center;gap:.72rem;font-weight:900;letter-spacing:-.04em}
+    .brand-mark{
+      width:38px;height:38px;display:grid;place-items:center;clip-path:polygon(50% 0,100% 22%,100% 78%,50% 100%,0 78%,0 22%);
+      background:linear-gradient(135deg,var(--cyan),var(--purple));color:#021014;font-size:.84rem
+    }
+    .nav-links{display:flex;gap:1.25rem;align-items:center;color:var(--muted);font-size:.78rem;font-weight:900}
+    .nav-links a:hover{color:var(--cyan)}
+    .nav-actions{display:flex;gap:.55rem;align-items:center}
+    .icon-btn{
+      width:40px;height:40px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);
+      background:var(--surface2);color:var(--text)
+    }
+    .icon-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+    .menu-btn{display:none}
+
+    .hero{min-height:100vh;padding-top:112px;display:grid;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:3.2rem;align-items:center}
+    .terminal{
+      display:flex;gap:.6rem;flex-wrap:wrap;margin:1.15rem 0 .85rem;color:var(--muted);font-size:.84rem
+    }
+    .prompt{color:var(--green)}
+    .hero h1{
+      margin:.5rem 0 0;font-family:var(--display);font-size:clamp(3.4rem,9.2vw,7.8rem);
+      line-height:.86;letter-spacing:-.095em
+    }
+    .grad{
+      background:linear-gradient(90deg,var(--cyan),#86a4ff 40%,var(--purple) 70%,var(--pink));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .typed{min-height:2rem;margin:1rem 0 0;color:var(--cyan);font-size:clamp(1rem,2vw,1.32rem);font-weight:900}
+    .cursor{animation:blink .9s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+    .hero-desc{max-width:760px;margin:1rem 0 0;color:var(--muted);font-size:1.03rem}
+    .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.7rem}
+    .social{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.35rem}
+    .social a{
+      width:40px;height:40px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);
+      background:var(--surface2);color:var(--muted);transition:.2s ease
+    }
+    .social a:hover{background:var(--cyan);color:#021014;border-color:var(--cyan);transform:translateY(-3px)}
+
+    .hero-meta{
+      display:grid;gap:1rem;padding:1rem
+    }
+    .meta-top{
+      display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid var(--border)
+    }
+    .meta-top strong{font-family:var(--display);font-size:1rem}
+    .status{display:inline-flex;align-items:center;gap:.45rem;color:var(--green);font-size:.7rem;font-weight:900}
+    .status i{width:.5rem;height:.5rem;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(61,242,138,.7)}
+    .portrait-wrap{position:relative;padding:1rem}
+    .portrait-frame{
+      position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:28px;border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(0,229,255,.10), rgba(184,108,255,.08))
+    }
+    .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.06) saturate(1.02)}
+    .frame-glow{
+      position:absolute;inset:-8px;border-radius:34px;background:linear-gradient(135deg, rgba(0,229,255,.35), rgba(184,108,255,.25), rgba(255,77,184,.18));
+      filter:blur(22px);z-index:-1;opacity:.9
+    }
+    .orbit-tag{
+      position:absolute;z-index:2;padding:.42rem .62rem;border:1px solid var(--border);border-radius:9px;
+      background:color-mix(in srgb, var(--surface2) 88%, transparent);backdrop-filter:blur(14px);font-size:.64rem;font-weight:900
+    }
+    .t1{top:4%;right:-3%;color:var(--cyan)} .t2{bottom:14%;left:-7%;color:var(--green)} .t3{right:-6%;bottom:4%;color:var(--pink)}
+    .hero-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-top:3rem}
+    .kpi{padding:1rem;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.02)}
+    .kpi-n{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.9rem);font-weight:900;color:var(--cyan);letter-spacing:-.07em}
+    .kpi-l{margin-top:.18rem;color:var(--muted);font-size:.7rem;font-weight:900;text-transform:uppercase;line-height:1.35}
+
+    .split{display:grid;grid-template-columns:1.05fr .95fr;gap:1rem;margin-top:2.2rem}
+    .panel{padding:1.45rem}
+    .panel p{color:var(--muted);font-size:.97rem}
+    .meta-list{padding:1rem 1.3rem}
+    .meta-row{
+      display:flex;justify-content:space-between;gap:1rem;padding:.94rem 0;border-bottom:1px solid var(--border);font-size:.82rem
+    }
+    .meta-row:last-child{border-bottom:0}
+    .meta-k{color:var(--muted)} .meta-v{color:var(--cyan);font-weight:900;text-align:right}
+    .timeline{
+      position:relative;margin-top:2.4rem;padding-left:1.4rem;border-left:1px solid var(--border)
+    }
+    .ti{position:relative;padding:0 0 1.75rem 1.45rem}
+    .ti::before{
+      content:"";position:absolute;left:-1.86rem;top:.32rem;width:.72rem;height:.72rem;border-radius:50%;
+      border:3px solid var(--bg);background:var(--cyan);box-shadow:0 0 18px rgba(0,229,255,.75)
+    }
+    .ti-y{color:var(--green);font-size:.74rem;font-weight:900;letter-spacing:.08em}
+    .ti-t{margin:.35rem 0;font-family:var(--display);font-size:1.18rem}
+    .ti-p{margin:0;color:var(--muted);font-size:.84rem}
+
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.2rem}
+    .ring-card{padding:1.2rem;text-align:center}
+    .pr{width:132px;height:132px;transform:rotate(-90deg)}
+    .bg-ring{fill:none;stroke:var(--surface3);stroke-width:10}
+    .val-ring{
+      fill:none;stroke:var(--cyan);stroke-width:10;stroke-linecap:round;stroke-dasharray:326.7;stroke-dashoffset:326.7;
+      transition:stroke-dashoffset 1.5s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 8px rgba(0,229,255,.5))
+    }
+    .skills-grid .ring-card:nth-child(2) .val-ring{stroke:var(--purple)}
+    .skills-grid .ring-card:nth-child(3) .val-ring{stroke:var(--green)}
+    .skills-grid .ring-card:nth-child(4) .val-ring{stroke:var(--pink)}
+    .rwrap{position:relative;display:inline-grid;place-items:center}
+    .rnum{position:absolute;font-size:1.2rem;font-weight:900}
+    .rname{display:block;margin-top:.8rem;font-size:.8rem;font-weight:900}
+    .rdetail{display:block;margin-top:.2rem;color:var(--muted);font-size:.7rem}
+    .cloud{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.25rem}
+
+    .masonry{columns:3 270px;column-gap:1rem;margin-top:2.2rem}
+    .project{
+      display:inline-block;width:100%;overflow:hidden;margin:0 0 1rem;break-inside:avoid;border:1px solid var(--border);
+      border-radius:var(--radius);background:var(--surface);transition:.22s ease
+    }
+    .project:hover{transform:translateY(-5px);border-color:rgba(0,229,255,.55);box-shadow:var(--shadow)}
+    .pimg{aspect-ratio:16/10;overflow:hidden;background:var(--surface2);border:0;padding:0;width:100%}
+    .pimg img{width:100%;height:100%;object-fit:cover;transition:.45s ease}
+    .project:hover .pimg img{transform:scale(1.06)}
+    .pbody{padding:1rem}
+    .pidx{color:var(--green);font-size:.68rem;font-weight:900}
+    .ptitle{margin:.35rem 0;font-family:var(--display);font-size:1.2rem}
+    .pcopy{margin:0;color:var(--muted);font-size:.78rem}
+    .pfoot{display:flex;justify-content:space-between;align-items:center;gap:.6rem;margin-top:1rem}
+    .ptech{color:var(--purple);font-size:.68rem;font-weight:900}
+    .plink{color:var(--cyan);font-size:.75rem;font-weight:900}
+
+    .collections,.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
+    .col,.price,.panel{padding:1.25rem}
+    .col h3,.price h3,.faq h3,.contact h3{font-family:var(--display);margin:0}
+    .col p,.panel p{margin:.45rem 0 .9rem;color:var(--muted);font-size:.8rem}
+    .list{display:grid;gap:.55rem;max-height:300px;overflow:auto;padding-right:.25rem}
+    .list a,.list button{
+      padding:.65rem;border:1px solid var(--border);border-radius:10px;background:var(--surface2);color:var(--muted);
+      font-size:.7rem;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:.2s ease
+    }
+    .list a:hover,.list button:hover{border-color:var(--cyan);color:var(--cyan)}
+
+    .slider{max-width:950px;margin:2.2rem auto 0;padding:1.65rem}
+    .quote{margin:0;font-family:var(--display);font-size:clamp(1.22rem,3vw,1.82rem);line-height:1.35;text-align:center}
+    .author{margin-top:1rem;color:var(--cyan);text-align:center;font-size:.8rem;font-weight:900;letter-spacing:.08em}
+    .controls{display:flex;justify-content:center;gap:.6rem;margin-top:1rem}
+
+    .price{position:relative}
+    .featured{
+      border-color:var(--cyan);
+      box-shadow:0 0 0 1px rgba(0,229,255,.1), 0 18px 50px rgba(0,229,255,.09)
+    }
+    .badge{
+      position:absolute;right:1rem;top:-.7rem;padding:.3rem .55rem;border-radius:7px;background:var(--cyan);
+      color:#021014;font-size:.65rem;font-weight:900
+    }
+    .price-n{margin:0;font-family:var(--display);font-size:1.4rem}
+    .amount{margin:.5rem 0;color:var(--cyan);font-size:2rem;font-weight:900}
+    .note{color:var(--muted);font-size:.75rem}
+    .ul{display:grid;gap:.6rem;padding:0;margin:1rem 0;list-style:none;color:var(--muted);font-size:.78rem}
+    .ul li::before{content:"✓";margin-right:.5rem;color:var(--green)}
+
+    .faq-list{display:grid;gap:.75rem;max-width:950px;margin-top:2.2rem}
+    .faq-item{overflow:hidden}
+    .q{
+      width:100%;display:flex;justify-content:space-between;gap:1rem;padding:1rem;border:0;background:transparent;color:var(--text);
+      font-weight:900;text-align:left
+    }
+    .a{display:none;padding:0 1rem 1rem;color:var(--muted);font-size:.84rem}
+    .faq-item.open .a{display:block}
+    .faq-item.open .sym{transform:rotate(45deg);color:var(--cyan)}
+
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:1rem;margin-top:2.2rem}
+    .detail{display:flex;align-items:center;gap:.7rem;padding:.8rem 0;border-bottom:1px solid var(--border);font-size:.78rem}
+    .detail:last-child{border-bottom:0}
+    .form{display:grid;gap:.9rem}
+    .rows{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    label{
+      display:grid;gap:.38rem;color:var(--muted);font-size:.72rem;font-weight:900
+    }
+    input,textarea{
+      width:100%;padding:.82rem;border:1px solid var(--border);border-radius:10px;background:var(--surface2);color:var(--text);outline:none
+    }
+    input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,229,255,.12)}
+    textarea{min-height:130px;resize:vertical}
+    .msg{min-height:1.2rem;margin:0;color:var(--green);font-size:.75rem}
+
+    .map{
+      position:relative;min-height:250px;overflow:hidden;padding:1.4rem;border:1px solid var(--border);border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(0,229,255,.16), transparent 55%), url("https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80") center/cover;
+      align-content:end;display:grid
+    }
+    .map::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg, rgba(0,0,0,.78), transparent)}
+    .map > *{position:relative}
+
+    footer{padding:4rem 0 1.5rem;border-top:1px solid var(--border);background:rgba(0,0,0,.12)}
+    .foot-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:2rem}
+    .foot-title{margin:0;font-family:var(--display);font-size:1.1rem}
+    .foot-copy{color:var(--muted);font-size:.78rem}
+    .newsletter{display:flex;gap:.5rem;margin-top:1rem}
+    .footer-links{display:grid;gap:.55rem;margin-top:1rem;color:var(--muted);font-size:.76rem}
+    .footer-links a:hover{color:var(--cyan)}
+    .bottom{
+      display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.2rem;padding-top:1.2rem;
+      border-top:1px solid var(--border);color:var(--muted);font-size:.68rem
+    }
+
+    .back,.cta{
+      position:fixed;right:1rem;z-index:40;opacity:0;pointer-events:none;transition:.2s ease
+    }
+    .back{
+      bottom:1rem;width:46px;height:46px;border:0;border-radius:50%;
+      background:linear-gradient(135deg,var(--cyan),var(--blue));color:#021014;font-weight:900
+    }
+    .cta{
+      bottom:4.7rem;padding:.76rem .95rem;border-radius:12px;
+      background:linear-gradient(135deg,var(--green),#7bffb2);color:#021014;font-size:.72rem;font-weight:900;box-shadow:var(--shadow)
+    }
+    .visibleTool{opacity:1;pointer-events:auto}
+
+    .modal{
+      position:fixed;inset:0;z-index:1000;display:none;padding:1rem;place-items:center;
+      background:rgba(0,0,0,.84);backdrop-filter:blur(10px)
+    }
+    .modal.open{display:grid}
+    .inner{
+      position:relative;width:min(940px,100%);max-height:90vh;overflow:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)
+    }
+    .inner img{display:block;width:100%;max-height:70vh;object-fit:contain;background:#000}
+    .close{
+      position:absolute;top:.75rem;right:.75rem;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+      background:rgba(0,0,0,.65);color:#fff;z-index:2
+    }
+    .content{padding:1rem 1.2rem}
+
+    .track{
+      position:relative;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);background:linear-gradient(135deg, rgba(0,229,255,.08), rgba(184,108,255,.06), rgba(255,77,184,.04));
+      box-shadow:var(--shadow)
+    }
+    .track::before{
+      content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 20% 20%, rgba(0,229,255,.12), transparent 22rem),
+      radial-gradient(circle at 80% 30%, rgba(184,108,255,.12), transparent 20rem),
+      radial-gradient(circle at 50% 90%, rgba(61,242,138,.08), transparent 18rem)
+    }
+    .track-inner{position:relative;padding:1.3rem}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
+    .metric{padding:1rem;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,.03)}
+    .metric-n{font-family:var(--display);font-size:1.9rem;font-weight:900;color:var(--cyan);letter-spacing:-.06em}
+    .metric-l{margin-top:.15rem;color:var(--muted);font-size:.7rem;font-weight:900;text-transform:uppercase;line-height:1.35}
+
+    .section-divider{height:1px;background:linear-gradient(90deg, transparent, rgba(0,229,255,.3), rgba(184,108,255,.25), transparent);margin-top:2rem}
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+    }
+    @media (max-width:980px){
+      .nav-links{
+        display:none;position:absolute;top:78px;left:1rem;right:1rem;flex-direction:column;align-items:stretch;
+        padding:1rem;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)
+      }
+      .nav-links.open{display:flex}
+      .menu-btn{display:grid}
+      .hero-grid,.split,.contact-grid{grid-template-columns:1fr}
+      .skills-grid,.collections,.pricing,.metric-grid{grid-template-columns:repeat(2,1fr)}
+      .foot-grid{grid-template-columns:1fr 1fr}
+      .hero{padding-block:112px 64px;min-height:auto}
+      .orbit{max-width:380px;order:-1}
+    }
+    @media (max-width:620px){
+      .section{padding:4.1rem 0}
+      .nav-actions .btn{display:none}
+      .hero h1{font-size:clamp(3rem,16vw,4.6rem)}
+      .hero-kpis,.skills-grid,.collections,.pricing,.foot-grid,.metric-grid{grid-template-columns:1fr}
+      .rows{grid-template-columns:1fr}
+      .newsletter{flex-direction:column}
+      .masonry{columns:1}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <div class="noise"></div>
+  <div class="grid"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Moe Kyaw Aung home">
+        <span class="brand-mark">MKA</span>
+        <span>MOE<span style="color:var(--cyan)">_</span>KYAW</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#stack">Stack</a>
+        <a href="#projects">Work</a>
+        <a href="#collections">Collections</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <a class="btn btn-primary" href="#contact">Hire Me ↗</a>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="home">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><span class="dot"></span> Senior Android Developer • Ultra Premium Edition</span>
+          <div class="terminal"><span class="prompt">mka@studio:~$</span><span>launch portfolio --mode premium</span></div>
+
+          <h1><span class="grad">MOE KYAW</span><br>AUNG<span style="color:var(--cyan)">.</span></h1>
+
+          <div class="typed"><span id="typed"></span><span class="cursor">_</span></div>
+
+          <p class="hero-desc">
+            I build premium Android products with Kotlin, Jetpack Compose, Firebase, clean architecture, testing discipline,
+            and delivery systems that are designed to last. The goal is simple: make complex software feel calm, refined,
+            and highly trustworthy.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore Featured Work ↓</a>
+            <a class="btn btn-secondary" href="https://github.com/Dev-moe-kyawaung/" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a class="btn btn-secondary" href="https://gravatar.com/moekyawaung2026" target="_blank" rel="noreferrer">Profile ↗</a>
+          </div>
+
+          <div class="social" aria-label="Social links">
+            <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" rel="noreferrer">GH</a>
+            <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" rel="noreferrer">in</a>
+            <a href="mailto:moekyawaung@programmer.net">✉</a>
+            <a href="tel:+959889000889">☎</a>
+            <a href="https://www.youtube.com/channel/UCuTXUguZb4xjeL2nX8WJG" target="_blank" rel="noreferrer">YT</a>
+            <a href="https://bsky.app/profile/moekyawaung96.bsky.social" target="_blank" rel="noreferrer">BS</a>
+          </div>
+        </div>
+
+        <div class="hero-meta reveal">
+          <div class="card">
+            <div class="meta-top">
+              <strong>Executive Snapshot</strong>
+              <span class="status"><i></i> OPEN TO COLLABORATION</span>
+            </div>
+            <div class="portrait-wrap">
+              <div class="frame-glow"></div>
+              <span class="orbit-tag t1">KOTLIN ☕</span>
+              <span class="orbit-tag t2">COMPOSE ⚛</span>
+              <span class="orbit-tag t3">FIREBASE 🔥</span>
+              <div class="portrait-frame">
+                <img src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_1100/v1778527878/IMG_20260430_053105_uef0yr.png" alt="Moe Kyaw Aung portrait">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-kpis reveal">
+        <article class="kpi"><div class="kpi-n" data-count="12" data-suffix="+">0</div><div class="kpi-l">Years engineering</div></article>
+        <article class="kpi"><div class="kpi-n" data-count="3000" data-suffix="+">0</div><div class="kpi-l">Apps & builds</div></article>
+        <article class="kpi"><div class="kpi-n" data-count="122">0</div><div class="kpi-l">Repositories</div></article>
+        <article class="kpi"><div class="kpi-n" data-count="100" data-suffix="%">0</div><div class="kpi-l">Quality focus</div></article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="label reveal">01 / About</div>
+        <h2 class="title reveal">A premium studio feel<br>built around Android craft.</h2>
+        <p class="copy reveal">မင်္ဂလာပါ။ This portfolio is intentionally designed like a flagship product website, not a generic résumé page. It combines editorial storytelling, modern motion, and developer credibility so the experience feels polished from the first screen to the final contact block.</p>
+
+        <div class="split">
+          <article class="card panel reveal">
+            <p>I work across full application delivery: architecture, state management, UI systems, data flow, storage, networking, QA, and release readiness. My preferred stack includes Kotlin, Jetpack Compose, Room, Retrofit, OkHttp, Firebase, GitHub Actions, and practical security habits.</p>
+            <p>What makes the work feel premium is the discipline behind it: clean implementation, clear structure, measurable outcomes, and design choices that respect the user’s time and attention.</p>
+            <p><strong style="color:var(--cyan)">Current focus:</strong> MoekyawTranslator, a translation product concept shaped for real multilingual workflows and language accessibility.</p>
+          </article>
+
+          <article class="card meta-list reveal">
+            <div class="meta-row"><span class="meta-k">Name</span><span class="meta-v">Moe Kyaw Aung</span></div>
+            <div class="meta-row"><span class="meta-k">Role</span><span class="meta-v">Senior Android Developer</span></div>
+            <div class="meta-row"><span class="meta-k">Location</span><span class="meta-v">Myanmar ↔ Thailand</span></div>
+            <div class="meta-row"><span class="meta-k">Languages</span><span class="meta-v">Burmese · English · Kotlin</span></div>
+            <div class="meta-row"><span class="meta-k">Approach</span><span class="meta-v">Build with purpose</span></div>
+          </article>
+        </div>
+
+        <div class="timeline reveal">
+          <article class="ti">
+            <div class="ti-y">FOUNDATION</div>
+            <h3 class="ti-t">Core Android engineering</h3>
+            <p class="ti-p">Built a strong technical base in Kotlin, Java, XML, APIs, persistence, app performance, and platform behavior.</p>
+          </article>
+          <article class="ti">
+            <div class="ti-y">MODERNIZATION</div>
+            <h3 class="ti-t">Compose, modular thinking, and clean structure</h3>
+            <p class="ti-p">Moved into state-driven UI, architecture clarity, and maintainable mobile design that scales without turning messy.</p>
+          </article>
+          <article class="ti">
+            <div class="ti-y">NOW</div>
+            <h3 class="ti-t">Senior delivery with product mindset</h3>
+            <p class="ti-p">Shipping refined apps with testing, CI/CD, security-aware development, and polished release execution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="container">
+        <div class="label reveal">02 / Stack</div>
+        <h2 class="title reveal">Mobile systems,<br>engineered to feel effortless.</h2>
+
+        <div class="track reveal">
+          <div class="track-inner">
+            <div class="metric-grid">
+              <article class="metric"><div class="metric-n">Kotlin</div><div class="metric-l">coroutines · flow · clean code</div></article>
+              <article class="metric"><div class="metric-n">Compose</div><div class="metric-l">Material 3 · adaptive UI</div></article>
+              <article class="metric"><div class="metric-n">Firebase</div><div class="metric-l">auth · firestore · messaging</div></article>
+              <article class="metric"><div class="metric-n">CI/CD</div><div class="metric-l">quality gates · delivery</div></article>
+            </div>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <article class="card ring-card reveal">
+            <div class="rwrap">
+              <svg class="pr" viewBox="0 0 120 120"><circle class="bg-ring" cx="60" cy="60" r="52"></circle><circle class="val-ring" data-percent="96" cx="60" cy="60" r="52"></circle></svg>
+              <span class="rnum">96%</span>
+            </div>
+            <span class="rname">Kotlin</span><span class="rdetail">Coroutines · Flow · OOP</span>
+          </article>
+          <article class="card ring-card reveal">
+            <div class="rwrap">
+              <svg class="pr" viewBox="0 0 120 120"><circle class="bg-ring" cx="60" cy="60" r="52"></circle><circle class="val-ring" data-percent="94" cx="60" cy="60" r="52"></circle></svg>
+              <span class="rnum">94%</span>
+            </div>
+            <span class="rname">Jetpack Compose</span><span class="rdetail">Material 3 · Navigation · State</span>
+          </article>
+          <article class="card ring-card reveal">
+            <div class="rwrap">
+              <svg class="pr" viewBox="0 0 120 120"><circle class="bg-ring" cx="60" cy="60" r="52"></circle><circle class="val-ring" data-percent="91" cx="60" cy="60" r="52"></circle></svg>
+              <span class="rnum">91%</span>
+            </div>
+            <span class="rname">Firebase</span><span class="rdetail">Auth · Firestore · FCM</span>
+          </article>
+          <article class="card ring-card reveal">
+            <div class="rwrap">
+              <svg class="pr" viewBox="0 0 120 120"><circle class="bg-ring" cx="60" cy="60" r="52"></circle><circle class="val-ring" data-percent="88" cx="60" cy="60" r="52"></circle></svg>
+              <span class="rnum">88%</span>
+            </div>
+            <span class="rname">CI / CD</span><span class="rdetail">Actions · tests · release flow</span>
+          </article>
+        </div>
+
+        <div class="cloud reveal">
+          <span class="chip">Kotlin</span><span class="chip">Compose</span><span class="chip">MVVM</span><span class="chip">MVI</span>
+          <span class="chip">Room</span><span class="chip">Retrofit</span><span class="chip">OkHttp</span><span class="chip">Firebase</span>
+          <span class="chip">JUnit</span><span class="chip">Espresso</span><span class="chip">GitHub Actions</span><span class="chip">Security</span>
+          <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="label reveal">03 / Featured work</div>
+        <h2 class="title reveal">Case studies that feel<br>like product launches.</h2>
+        <p class="copy reveal">A more editorial presentation of your strongest collection items. Every card is styled to feel like a premium showcase, not a generic project list.</p>
+
+        <div class="masonry">
+          <article class="project reveal" data-image="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747388/image-1_1_khsx9s.png" data-title="Social Dashboard">
+            <button class="pimg" aria-label="Preview Social Dashboard"><img loading="lazy" src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_900/v1778747388/image-1_1_khsx9s.png" alt="Social Dashboard preview"></button>
+            <div class="pbody">
+              <span class="pidx">01 / STRATEGY</span>
+              <h3 class="ptitle">Social Dashboard</h3>
+              <p class="pcopy">An analytics interface designed to make social metrics look sharp, structured, and easy to read.</p>
+              <div class="pfoot"><span class="ptech">React · Firebase</span><a class="plink" href="https://github.com/moekyawaung-tech/social-dashboard" target="_blank" rel="noreferrer">Code ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-image="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp" data-title="Video Player">
+            <button class="pimg" aria-label="Preview Video Player"><img loading="lazy" src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_900/v1778763535/MKA_25_lbx6fb.webp" alt="Video Player preview"></button>
+            <div class="pbody">
+              <span class="pidx">02 / MEDIA</span>
+              <h3 class="ptitle">Video Player</h3>
+              <p class="pcopy">A cinematic player concept with premium controls and a strong visual hierarchy.</p>
+              <div class="pfoot"><span class="ptech">JavaScript · UX</span><a class="plink" href="https://github.com/moekyawaung-tech/video-player" target="_blank" rel="noreferrer">Code ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-image="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_12_iv8kpm.webp" data-title="PWA App">
+            <button class="pimg" aria-label="Preview PWA App"><img loading="lazy" src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_900/v1778763531/MKA_12_iv8kpm.webp" alt="PWA app preview"></button>
+            <div class="pbody">
+              <span class="pidx">03 / PRODUCT</span>
+              <h3 class="ptitle">Progressive Web App</h3>
+              <p class="pcopy">Installable web product patterns built for speed, access, and modern device behavior.</p>
+              <div class="pfoot"><span class="ptech">PWA · Web APIs</span><a class="plink" href="https://github.com/moekyawaung-tech/pwa-app" target="_blank" rel="noreferrer">Code ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-image="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795822/preview_dzhqvv.webp" data-title="Game Collection">
+            <button class="pimg" aria-label="Preview Game Collection"><img loading="lazy" src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_900/v1778795822/preview_dzhqvv.webp" alt="Game Collection preview"></button>
+            <div class="pbody">
+              <span class="pidx">04 / INTERACTIVE</span>
+              <h3 class="ptitle">Game Collection</h3>
+              <p class="pcopy">A playful interactive set focused on motion, engagement, and visual energy.</p>
+              <div class="pfoot"><span class="ptech">Canvas · JavaScript</span><a class="plink" href="https://github.com/moekyawaung-tech/game-collection" target="_blank" rel="noreferrer">Code ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-image="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795847/copilot_image_1778795115579_acfm5j.png" data-title="POS Ultimate">
+            <button class="pimg" aria-label="Preview POS Ultimate"><img loading="lazy" src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_900/v1778795847/copilot_image_1778795115579_acfm5j.png" alt="POS Ultimate preview"></button>
+            <div class="pbody">
+              <span class="pidx">05 / COMMERCE</span>
+              <h3 class="ptitle">POS Ultimate</h3>
+              <p class="pcopy">Point-of-sale concepts centered on operational clarity and practical business workflows.</p>
+              <div class="pfoot"><span class="ptech">Android · Room</span><a class="plink" href="https://github.com/moekyawaung-tech/POS-Ultimate-Pro-Max" target="_blank" rel="noreferrer">Code ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-image="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747391/image_mplr5r.png" data-title="Weather App">
+            <button class="pimg" aria-label="Preview Weather App"><img loading="lazy" src="https://res.cloudinary.com/dye5qpwii/image/upload/f_auto,q_auto,w_900/v1778747391/image_mplr5r.png" alt="Weather app preview"></button>
+            <div class="pbody">
+              <span class="pidx">06 / UTILITY</span>
+              <h3 class="ptitle">Weather App</h3>
+              <p class="pcopy">A clean forecasting experience with a focus on clarity, calmness, and readable data.</p>
+              <div class="pfoot"><span class="ptech">API · UI</span><a class="plink" href="https://github.com/moekyawaung-tech/Weather-app" target="_blank" rel="noreferrer">Code ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="container">
+        <div class="label reveal">04 / Collections</div>
+        <h2 class="title reveal">A broader ecosystem<br>of live identities.</h2>
+
+        <div class="collections">
+          <article class="card col reveal">
+            <h3>GitHub Pages</h3>
+            <p>A network of developer portals and portfolio identities across your page ecosystem.</p>
+            <div class="list">
+              <a href="https://moekyawaung-china.github.io/" target="_blank" rel="noreferrer">moekyawaung-china.github.io ↗</a>
+              <a href="https://moekyawaung-developer.github.io/" target="_blank" rel="noreferrer">moekyawaung-developer.github.io ↗</a>
+              <a href="https://moekyaw-aung-mm.github.io/" target="_blank" rel="noreferrer">moekyaw-aung-mm.github.io ↗</a>
+              <a href="https://moekyawaung-mk.github.io/" target="_blank" rel="noreferrer">moekyawaung-mk.github.io ↗</a>
+              <a href="https://moekyawaung-microsoft.github.io/" target="_blank" rel="noreferrer">moekyawaung-microsoft.github.io ↗</a>
+              <a href="https://moekyawaung-cyber.github.io/" target="_blank" rel="noreferrer">moekyawaung-cyber.github.io ↗</a>
+            </div>
+          </article>
+
+          <article class="card col reveal">
+            <h3>Lovable Apps</h3>
+            <p>Live concepts, CV tools, portfolio experiments, and lightweight product landing spaces.</p>
+            <div class="list">
+              <a href="https://moekyawaung.lovable.app" target="_blank" rel="noreferrer">moekyawaung.lovable.app ↗</a>
+              <a href="https://happy-cv-creator.lovable.app" target="_blank" rel="noreferrer">happy-cv-creator.lovable.app ↗</a>
+              <a href="https://the-cv-palette.lovable.app" target="_blank" rel="noreferrer">the-cv-palette.lovable.app ↗</a>
+              <a href="https://moekyaw-url.lovable.app" target="_blank" rel="noreferrer">moekyaw-url.lovable.app ↗</a>
+              <a href="https://moekyawaung-dev.lovable.app" target="_blank" rel="noreferrer">moekyawaung-dev.lovable.app ↗</a>
+              <a href="https://joy-codify-life.lovable.app/" target="_blank" rel="noreferrer">joy-codify-life.lovable.app ↗</a>
+            </div>
+          </article>
+
+          <article class="card col reveal">
+            <h3>Contacts</h3>
+            <p>Quick-copy contact lines and direct profile access for clean, low-friction outreach.</p>
+            <div class="list">
+              <button data-copy="moekyawaung@programmer.net">moekyawaung@programmer.net ⧉</button>
+              <button data-copy="moekyawaung@technologist.com">moekyawaung@technologist.com ⧉</button>
+              <button data-copy="moekyawaung@engineer.com">moekyawaung@engineer.com ⧉</button>
+              <button data-copy="moekyawaung@linuxmail.org">moekyawaung@linuxmail.org ⧉</button>
+              <a href="https://gravatar.com/moekyawaung2026" target="_blank" rel="noreferrer">Gravatar profile ↗</a>
+              <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="label reveal">05 / Trust</div>
+        <h2 class="title reveal">Engineering is a<br>team sport.</h2>
+        <div class="card slider reveal">
+          <article class="slide active"><p class="quote">“Premium software feels calm because its structure, motion, and copy all support the same clear story.”</p><div class="author">— PRODUCT SIGNAL</div></article>
+          <article class="slide" style="display:none"><p class="quote">“The best mobile apps respect the user’s time, device, and attention before they ask for anything else.”</p><div class="author">— USER TRUST</div></article>
+          <article class="slide" style="display:none"><p class="quote">“Architecture should be elegant enough for a team to maintain and strong enough for the product to grow.”</p><div class="author">— LONG-TERM MAINTAINABILITY</div></article>
+          <div class="controls">
+            <button class="icon-btn" id="prev" aria-label="Previous testimonial">←</button>
+            <button class="icon-btn" id="next" aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="label reveal">06 / Services</div>
+        <h2 class="title reveal">From concept to<br>release-quality delivery.</h2>
+        <div class="pricing">
+          <article class="card price reveal">
+            <h3 class="price-n">Android Audit</h3><div class="amount">Scope-based</div><span class="note">For existing apps needing clarity</span>
+            <ul class="ul"><li>Architecture and code review</li><li>Performance and UI assessment</li><li>Security and release checklist</li><li>Improvement roadmap</li></ul>
+            <a class="btn btn-secondary" href="#contact">Discuss audit</a>
+          </article>
+          <article class="card price featured reveal">
+            <span class="badge">POPULAR</span>
+            <h3 class="price-n">Feature Delivery</h3><div class="amount">Custom</div><span class="note">For defined Android work</span>
+            <ul class="ul"><li>Compose UI and state</li><li>REST / Firebase integration</li><li>Offline caching and errors</li><li>Testing and CI/CD readiness</li></ul>
+            <a class="btn btn-primary" href="#contact">Start a conversation</a>
+          </article>
+          <article class="card price reveal">
+            <h3 class="price-n">Technical Mentoring</h3><div class="amount">Flexible</div><span class="note">For developers and teams</span>
+            <ul class="ul"><li>Android architecture coaching</li><li>Code-review guidance</li><li>Compose and Kotlin practices</li><li>Documentation and workflow support</li></ul>
+            <a class="btn btn-secondary" href="#contact">Request mentoring</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="label reveal">07 / FAQ</div>
+        <h2 class="title reveal">Questions,<br>without boilerplate.</h2>
+        <div class="faq-list">
+          <article class="card faq-item reveal"><button class="q" aria-expanded="false">What Android stack do you use?<span class="sym">+</span></button><div class="a">Kotlin, Jetpack Compose, ViewModel, Navigation, Room, Retrofit, OkHttp, Firebase, Clean Architecture, MVVM/MVI, JUnit, Espresso, MockK, and CI/CD.</div></article>
+          <article class="card faq-item reveal"><button class="q" aria-expanded="false">Can you help improve an existing app?<span class="sym">+</span></button><div class="a">Yes. I can start with a code audit, architecture cleanup, UI modernization, performance tuning, release automation, or feature delivery.</div></article>
+          <article class="card faq-item reveal"><button class="q" aria-expanded="false">Do you support Burmese content?<span class="sym">+</span></button><div class="a">Yes. The portfolio is font-ready for Burmese and can be adapted to bilingual user journeys and Unicode-safe interfaces.</div></article>
+          <article class="card faq-item reveal"><button class="q" aria-expanded="false">How should the form be connected?<span class="sym">+</span></button><div class="a">Connect it to Formspree, Resend, EmailJS, a serverless function, or your own secure API endpoint for production.</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="label reveal">08 / Contact</div>
+        <h2 class="title reveal">Let’s ship something<br>people can trust.</h2>
+
+        <div class="contact-grid">
+          <article class="card panel reveal">
+            <h3>Start a conversation</h3>
+            <p>For Android engineering, portfolio work, architecture support, or longer-term collaboration.</p>
+            <div class="detail"><span>✉</span><a href="mailto:moekyawaung@programmer.net">moekyawaung@programmer.net</a></div>
+            <div class="detail"><span>☎</span><a href="tel:+959889000889">+95 9 889 000 889</a></div>
+            <div class="detail"><span>☎</span><a href="tel:+959666000050">+95 9 666 000 050</a></div>
+            <div class="detail"><span>⌖</span><span>Tachileik, Myanmar ↔ Bangkok, Thailand</span></div>
+            <div class="social">
+              <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" rel="noreferrer">GH</a>
+              <a href="https://gravatar.com/moekyawaung2026" target="_blank" rel="noreferrer">G</a>
+              <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" rel="noreferrer">in</a>
+              <a href="https://www.tumblr.com/moekyawaung" target="_blank" rel="noreferrer">T</a>
+            </div>
+          </article>
+
+          <form class="card panel reveal form" id="contactForm" novalidate>
+            <div class="rows">
+              <label>Name<input id="name" required autocomplete="name" placeholder="Your name"></label>
+              <label>Email<input id="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+            </div>
+            <label>Project type<input id="subject" required placeholder="Android app, audit, portfolio, consulting..."></label>
+            <label>Message<textarea id="message" required placeholder="Tell me what you want to build, improve, or ship."></textarea></label>
+            <button class="btn btn-primary" type="submit">Send Secure Message ↗</button>
+            <p class="msg" id="formMsg" role="status"></p>
+          </form>
+        </div>
+
+        <div class="map reveal" style="margin-top:1rem">
+          <span class="eyebrow">Regional availability</span>
+          <h3 style="margin:.75rem 0 0;font-family:var(--display);font-size:clamp(1.5rem,4vw,2.6rem)">Tachileik, Myanmar<br>↔ Bangkok, Thailand</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <section>
+          <h2 class="foot-title">MOE_KYAW / ULTRA PREMIUM</h2>
+          <p class="foot-copy">Android engineering, user trust, system design, and release-ready polish in one premium portfolio experience.</p>
+          <form class="newsletter" id="newsletterForm">
+            <input id="newsletterEmail" type="email" placeholder="Email for updates" aria-label="Email for updates" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+          <p class="msg" id="newsMsg" role="status"></p>
+        </section>
+        <section>
+          <h2 class="foot-title">Navigate</h2>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#about">About & Timeline</a>
+            <a href="#stack">Technology Stack</a>
+            <a href="#projects">App Collection</a>
+            <a href="#collections">Account Collections</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </section>
+        <section>
+          <h2 class="foot-title">Core focus</h2>
+          <div class="footer-links">
+            <span>Kotlin · Jetpack Compose</span>
+            <span>Firebase · REST APIs</span>
+            <span>Clean Architecture · MVVM</span>
+            <span>Security · CI/CD · Testing</span>
+            <span>Code with culture. Build with purpose.</span>
+          </div>
+        </section>
+      </div>
+      <div class="bottom">
+        <span>© <span id="year"></span> Moe Kyaw Aung.</span>
+        <span>Single-file ultra premium HTML · SEO-ready · accessible · deploy-friendly</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="cta" id="cta" href="#contact">Let’s build ↗</a>
+  <button class="back" id="backTop" aria-label="Back to top">↑</button>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="inner">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <img id="modalImg" src="" alt="">
+      <div class="content"><strong id="modalTitle"></strong></div>
+    </div>
+  </div>
+
+  <script>
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const navbar = document.getElementById("navbar");
+    const navLinks = document.getElementById("navLinks");
+    const menuToggle = document.getElementById("menuToggle");
+    const themeToggle = document.getElementById("themeToggle");
+    const backTop = document.getElementById("backTop");
+    const cta = document.getElementById("cta");
+
+    const savedTheme = localStorage.getItem("mka-theme");
+    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem("mka-theme", next);
+    });
+
+    window.addEventListener("scroll", () => {
+      const on = window.scrollY > 28;
+      navbar.classList.toggle("scrolled", on);
+      backTop.classList.toggle("visibleTool", window.scrollY > 500);
+      cta.classList.toggle("visibleTool", window.scrollY > 680);
+    }, { passive:true });
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", open);
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "☰";
+    }));
+
+    backTop.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
+
+    const typedLines = [
+      "ANDROID SENIOR DEVELOPER",
+      "KOTLIN · COMPOSE · FIREBASE",
+      "CLEAN ARCHITECTURE · CI/CD",
+      "CODE WITH CULTURE. BUILD WITH PURPOSE."
+    ];
+    const typed = document.getElementById("typed");
+    let i = 0, j = 0, deleting = false;
+    function typeLoop(){
+      if (reduced){ typed.textContent = typedLines[0]; return; }
+      const line = typedLines[i];
+      typed.textContent = line.slice(0, j);
+      if (!deleting && j < line.length){ j++; setTimeout(typeLoop, 46); }
+      else if (deleting && j > 0){ j--; setTimeout(typeLoop, 24); }
+      else { deleting = !deleting; if (!deleting) i = (i + 1) % typedLines.length; setTimeout(typeLoop, deleting ? 1200 : 300); }
+    }
+    typeLoop();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        entry.target.querySelectorAll(".kpi-n").forEach(c => animateCounter(c));
+        entry.target.querySelectorAll(".val-ring").forEach(r => animateRing(r));
+        observer.unobserve(entry.target);
+      });
+    }, { threshold:.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    function animateCounter(el){
+      if (el.dataset.done) return;
+      el.dataset.done = "1";
+      const target = Number(el.dataset.count || 0);
+      const suffix = el.dataset.suffix || "";
+      const start = performance.now(), dur = 1350;
+      function frame(now){
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = Math.floor(target * eased).toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    function animateRing(el){
+      if (el.dataset.done) return;
+      el.dataset.done = "1";
+      const p = Number(el.dataset.percent || 0);
+      el.style.strokeDashoffset = 326.7 * (1 - p / 100);
+    }
+
+    document.querySelectorAll(".faq-item .q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const open = item.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+      });
+    });
+
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeModal = document.getElementById("closeModal");
+    let lastFocus = null;
+
+    document.querySelectorAll(".project").forEach(card => {
+      const btn = card.querySelector(".pimg");
+      btn.addEventListener("click", () => {
+        lastFocus = document.activeElement;
+        modalImg.src = card.dataset.image;
+        modalImg.alt = card.dataset.title + " preview";
+        modalTitle.textContent = card.dataset.title;
+        modal.classList.add("open");
+        document.body.classList.add("modal-open");
+        closeModal.focus();
+      });
+    });
+
+    function hideModal(){
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+      if (lastFocus) lastFocus.focus();
+    }
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", e => { if (e.target === modal) hideModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) hideModal(); });
+
+    const slides = [...document.querySelectorAll(".slide")];
+    let s = 0;
+    function showSlide(n){ slides.forEach((el, idx) => el.style.display = idx === n ? "block" : "none"); }
+    document.getElementById("prev").addEventListener("click", () => { s = (s - 1 + slides.length) % slides.length; showSlide(s); });
+    document.getElementById("next").addEventListener("click", () => { s = (s + 1) % slides.length; showSlide(s); });
+
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const validEmail = /^[^s@]+@[^s@]+.[^s@]+$/.test(email);
+      const out = document.getElementById("formMsg");
+      if (!name || !validEmail || !subject || message.length < 12){
+        out.style.color = "var(--pink)";
+        out.textContent = "Please complete all fields with a valid email and a message of at least 12 characters.";
+        return;
+      }
+      out.style.color = "var(--green)";
+      out.textContent = "Validation successful. Connect this form to a secure email or serverless endpoint.";
+      e.target.reset();
+    });
+
+    document.getElementById("newsletterForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const input = document.getElementById("newsletterEmail");
+      const out = document.getElementById("newsMsg");
+      if (!/^[^s@]+@[^s@]+.[^s@]+$/.test(input.value)){
+        out.style.color = "var(--pink)";
+        out.textContent = "Enter a valid email address.";
+        return;
+      }
+      out.style.color = "var(--green)";
+      out.textContent = "Thanks — connect a newsletter provider to activate subscriptions.";
+      input.value = "";
+    });
+
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy);
+          const t = btn.textContent;
+          btn.textContent = "Copied ✓";
+          setTimeout(() => btn.textContent = t, 1200);
+        } catch {
+          btn.textContent = "Copy unavailable";
+        }
+      });
+    });
+
+    if (!reduced){
+      const canvas = document.getElementById("particles"), ctx = canvas.getContext("2d");
+      let parts = [];
+      const count = 72;
+      function resize(){
+        canvas.width = window.innerWidth * devicePixelRatio;
+        canvas.height = window.innerHeight * devicePixelRatio;
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+        ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+        parts = Array.from({length:count}, () => ({
+          x: Math.random()*window.innerWidth,
+          y: Math.random()*window.innerHeight,
+          r: Math.random()*1.5 + .3,
+          vx: (Math.random()-.5)*.22,
+          vy: (Math.random()-.5)*.22
+        }));
+      }
+      function draw(){
+        ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+        if (!document.hidden){
+          parts.forEach((p, idx) => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > window.innerWidth) p.vx *= -1;
+            if (p.y < 0 || p.y > window.innerHeight) p.vy *= -1;
+            ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle = "rgba(0,229,255,.5)"; ctx.fill();
+            for (let j = idx + 1; j < parts.length; j++){
+              const o = parts[j], dx = p.x - o.x, dy = p.y - o.y, d = Math.sqrt(dx*dx + dy*dy);
+              if (d < 125){
+                ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(o.x,o.y);
+                ctx.strokeStyle = `rgba(184,108,255,${0.12*(1-d/125)})`; ctx.lineWidth = .6; ctx.stroke();
+              }
+            }
+          });
+        }
+        requestAnimationFrame(draw);
+      }
+      resize(); draw(); window.addEventListener("resize", resize);
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
