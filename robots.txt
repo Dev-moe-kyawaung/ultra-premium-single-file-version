@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://github.com/Dev-moe-kyawaung/ultra-premium-single-file-version/sitemap.xml
